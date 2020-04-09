@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func createMainNavigationController() -> UINavigationController {
 //        let networkDataObtainer = NetworkDataObtainer()
 //        let dataProvider = DataProvider(networkDataObtainer: networkDataObtainer)
-        let moviesTableVC = MoviesTableViewController()
+        let moviesTableVC = MoviesTableViewController(dataProvider: DataProvider())
         return UINavigationController(rootViewController: moviesTableVC)
     }
 

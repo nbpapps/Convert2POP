@@ -18,6 +18,7 @@
 		E803926A243EF7090052D653 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8039269243EF7090052D653 /* DataProvider.swift */; };
 		E803926C243EF72D0052D653 /* NetworkDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E803926B243EF72D0052D653 /* NetworkDataFlow.swift */; };
 		E803926F243EF7A20052D653 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E803926E243EF7A20052D653 /* EndPoints.swift */; };
+		E8039272243EF9710052D653 /* AllMovieModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8039271243EF9710052D653 /* AllMovieModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E8039269243EF7090052D653 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		E803926B243EF72D0052D653 /* NetworkDataFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFlow.swift; sourceTree = "<group>"; };
 		E803926E243EF7A20052D653 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		E8039271243EF9710052D653 /* AllMovieModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMovieModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		E8039249243EF4560052D653 /* Convert2POP */ = {
 			isa = PBXGroup;
 			children = (
+				E8039270243EF9470052D653 /* Models */,
 				E803926D243EF7330052D653 /* EndPoints */,
 				E8039268243EF6930052D653 /* DataProvider */,
 				E8039265243EF6580052D653 /* Parsing */,
@@ -128,6 +131,14 @@
 				E803926E243EF7A20052D653 /* EndPoints.swift */,
 			);
 			path = EndPoints;
+			sourceTree = "<group>";
+		};
+		E8039270243EF9470052D653 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E8039271243EF9710052D653 /* AllMovieModels.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 				E803926C243EF72D0052D653 /* NetworkDataFlow.swift in Sources */,
 				E803924B243EF4560052D653 /* AppDelegate.swift in Sources */,
 				E8039264243EF5AA0052D653 /* NetworkAccess.swift in Sources */,
+				E8039272243EF9710052D653 /* AllMovieModels.swift in Sources */,
 				E803924D243EF4560052D653 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
