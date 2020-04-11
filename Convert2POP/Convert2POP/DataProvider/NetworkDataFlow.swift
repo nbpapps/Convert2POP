@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkDataFlow {
     
-    //MARK: - This method is in charge of a flow
+    //MARK: - This method is in charge of the flow - getting data from the network and parsing it into model data
     public func getData<T:Decodable>(for url: URL, with completion: @escaping (Result<T, Error>) -> Void) {
         fetchNetworkData(at: url) {[weak self] (networkResult : Result<Data,Error>) in
             guard let self = self else {return}
