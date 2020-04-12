@@ -9,45 +9,83 @@
 import Foundation
 
 
-protocol MoviesProviding {
-    var networkDataFlow : NetworkDataObtaining {get}
+//this is the 'main' protocol that a screen (or VM) will ask when they need to get data from the network
+protocol DataProviding {
+    var networkDataObtainer : NetworkDataObtaining {get}
+}
+
+//MARK: - specific data providers
+protocol MoviesProviding : DataProviding {
     func getMoviesForPage(page : Int,with completion : @escaping (Result<Movie,Error>) -> Void )
 }
 
-
-struct MoviesProvider : MoviesProviding {
-    var networkDataFlow: NetworkDataObtaining
-
-    init(networkDataFlow: NetworkDataObtaining) {
-        self.networkDataFlow =  networkDataFlow
-    }
-
-    func getMoviesForPage(page: Int, with completion: @escaping (Result<Movie, Error>) -> Void) {
-        let moviesEndpoint = Endpoint.popularMovies(atPage: String(page))
-        networkDataFlow.getData(for: moviesEndpoint, with: completion)
-    }
-}
-
-
-
-protocol MoviePageProviding {
-    var networkDataFlow : NetworkDataObtaining {get}
+protocol MoviePageProviding : DataProviding {
     func getMoviePage(for movieId : String,with completion : @escaping(Result<MoviePage,Error>) -> Void)
 }
 
-struct MoviePageProvider : MoviePageProviding {
-    
-    var networkDataFlow: NetworkDataObtaining
+//protocol MoviesProviding {
+//    var networkDataFlow : NetworkDataObtaining {get}
+//    func getMoviesForPage(page : Int,with completion : @escaping (Result<Movie,Error>) -> Void )
+//}
 
-    init(networkDataFlow: NetworkDataObtaining) {
-        self.networkDataFlow =  networkDataFlow
-    }
- 
-    func getMoviePage(for movieId: String, with completion: @escaping (Result<MoviePage, Error>) -> Void) {
-        let moviePageEndpoint = Endpoint.movie(withId: movieId)
-        networkDataFlow.getData(for: moviePageEndpoint,with: completion)
+//MARK: - Data provider implementation
+struct DataProvider : DataProviding {
+    var networkDataObtainer: NetworkDataObtaining
+    
+    init(networkDataObtainer: NetworkDataObtaining) {
+        self.networkDataObtainer =  networkDataObtainer
     }
 }
+
+//MARK: - specific implementations
+//these are the specific methods calls
+extension DataProvider : MoviesProviding {
+    func getMoviesForPage(page: Int, with completion: @escaping (Result<Movie, Error>) -> Void) {
+        let moviesEndpoint = Endpoint.popularMovies(atPage: String(page))
+        networkDataObtainer.getData(for: moviesEndpoint, with: completion)
+    }
+}
+
+extension DataProvider : MoviePageProviding {
+    func getMoviePage(for movieId: String, with completion: @escaping (Result<MoviePage, Error>) -> Void) {
+        let moviePageEndpoint = Endpoint.movie(withId: movieId)
+        networkDataObtainer.getData(for: moviePageEndpoint, with: completion)
+    }
+}
+
+//struct MoviesProvider : DataProviding {
+////    var networkDataFlow: NetworkDataObtaining
+////
+////    init(networkDataFlow: NetworkDataObtaining) {
+////        self.networkDataFlow =  networkDataFlow
+////    }
+//
+//    func getMoviesForPage(page: Int, with completion: @escaping (Result<Movie, Error>) -> Void) {
+//        let moviesEndpoint = Endpoint.popularMovies(atPage: String(page))
+//        networkDataFlow.getData(for: moviesEndpoint, with: completion)
+//    }
+//}
+
+
+
+//protocol MoviePageProviding {
+//    var networkDataFlow : NetworkDataObtaining {get}
+//    func getMoviePage(for movieId : String,with completion : @escaping(Result<MoviePage,Error>) -> Void)
+//}
+
+//struct MoviePageProvider : MoviePageProviding {
+//
+//    var networkDataFlow: NetworkDataObtaining
+//
+//    init(networkDataFlow: NetworkDataObtaining) {
+//        self.networkDataFlow =  networkDataFlow
+//    }
+//
+//    func getMoviePage(for movieId: String, with completion: @escaping (Result<MoviePage, Error>) -> Void) {
+//        let moviePageEndpoint = Endpoint.movie(withId: movieId)
+//        networkDataFlow.getData(for: moviePageEndpoint,with: completion)
+//    }
+//}
 
 //class DataProvider {
 //
