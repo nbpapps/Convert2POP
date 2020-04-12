@@ -18,8 +18,6 @@ struct Movie : Codable {
 
 struct MovieInfo :Codable {
     var title : String
-    var popularity : Double
-    var posterPath : String
     var id : Int
 }
 

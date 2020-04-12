@@ -13,9 +13,10 @@ struct Endpoint {
     private var queryItems: [URLQueryItem] = []
 }
 
+//https://api.themoviedb.org/3/movie/popular?api_key=4258adb04e249b52c4d9dba2586f9c8a&language=en-US&page=1
 
 extension Endpoint  {
-    var endPointURL: URL {
+    var endpointURL: URL {
         
         let defaultQueryItems = [URLQueryItem(name: "api_key", value: "4258adb04e249b52c4d9dba2586f9c8a"),URLQueryItem(name: "language", value: "en-US")]
         

@@ -33,10 +33,7 @@ struct NetworkAccess {
                 completion(.failure(.networkError))
                 return
             }
-//            if let _ = error {
-//                completion(.failure(.networkError))
-//            }
-            
+
             guard let networkResponse = response as? HTTPURLResponse, networkResponse.statusCode == 200 else {
                 completion(.failure(.responseError))
                 return
