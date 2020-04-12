@@ -10,12 +10,15 @@ import UIKit
 
 class MoviesTableViewController: UITableViewController {
     
-    let dataProvider : DataProvider
+//    let dataProvider : DataProvider
+    let moviesProvider : MoviesProvider
+    let moviePageProvider : MoviePageProvider
     var movies = [MovieInfo]()
     
     //MARK: - inits
-    init(dataProvider : DataProvider) {
-        self.dataProvider = dataProvider
+    init(moviesProvider : MoviesProvider,moviePageProvider : MoviePageProvider) {
+        self.moviesProvider = moviesProvider
+        self.moviePageProvider = moviePageProvider
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -32,7 +35,7 @@ class MoviesTableViewController: UITableViewController {
     
     //MARK: - load data
     private func loadMovies(forPage page : Int) {
-        dataProvider.getMoviesForPage(page: page){ [weak self] (moviesResult : Result<Movie,Error>) in
+        moviesProvider.getMoviesForPage(page: page){ [weak self] (moviesResult : Result<Movie,Error>) in
             guard let self = self else {return}
             switch moviesResult {
             case .success(let movies):
@@ -61,7 +64,7 @@ class MoviesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movie = movies[indexPath.row]
         let movieId = String(movie.id)
-        dataProvider.getMoviePage(for: movieId) { (movie : Result<MoviePage,Error>) in
+        moviePageProvider.getMoviePage(for: movieId) { (movie : Result<MoviePage,Error>) in
             print(movie)
         }
     }

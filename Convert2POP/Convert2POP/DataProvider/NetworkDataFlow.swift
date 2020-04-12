@@ -8,11 +8,17 @@
 
 import Foundation
 
-class NetworkDataFlow {
+protocol NetworkDataObtaining {
+    func getData<T:Decodable>(for endPointURLProvider : EndpointURLProviding, with completion :@escaping (Result<T,Error>) -> Void)
+}
+
+class NetworkDataFlow : NetworkDataObtaining {
+    
+    init() {}
     
     //MARK: - This method is in charge of the flow - getting data from the network and parsing it into model data
-    public func getData<T:Decodable>(for url: URL, with completion: @escaping (Result<T, Error>) -> Void) {
-        fetchNetworkData(at: url) {[weak self] (networkResult : Result<Data,Error>) in
+    public func getData<T:Decodable>(for endPointURLProvider: EndpointURLProviding, with completion: @escaping (Result<T, Error>) -> Void) {
+        fetchNetworkData(at: endPointURLProvider.endpointURL) {[weak self] (networkResult : Result<Data,Error>) in
             guard let self = self else {return}
             switch networkResult {
                 
