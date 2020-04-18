@@ -23,10 +23,6 @@ protocol MoviePageProviding : DataProviding {
     func getMoviePage(for movieId : String,with completion : @escaping(Result<MoviePage,Error>) -> Void)
 }
 
-//protocol MoviesProviding {
-//    var networkDataFlow : NetworkDataObtaining {get}
-//    func getMoviesForPage(page : Int,with completion : @escaping (Result<Movie,Error>) -> Void )
-//}
 
 //MARK: - Data provider implementation
 struct DataProvider : DataProviding {
@@ -66,7 +62,10 @@ extension DataProvider : MoviePageProviding {
 //    }
 //}
 
-
+//protocol MoviesProviding {
+//    var networkDataFlow : NetworkDataObtaining {get}
+//    func getMoviesForPage(page : Int,with completion : @escaping (Result<Movie,Error>) -> Void )
+//}
 
 //protocol MoviePageProviding {
 //    var networkDataFlow : NetworkDataObtaining {get}
