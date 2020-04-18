@@ -12,6 +12,9 @@ So I decided to make a basic project, that is used so often in IOS development -
 There are 3 branches in this repo:
 
 Starting_Point - the project before any protocol
+
 First_Phase - Protocols implemented in 3 classes
+
 Second_Phase - optimizing some of the protocols
+
 For more information about this project, see the this post and video
