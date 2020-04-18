@@ -1,7 +1,4 @@
 # Convert2POP
-https://youtu.be/YYUqYm1DZ3s
-
-
 
 Implementing POP in an exciting app
 
@@ -17,4 +14,4 @@ First_Phase - Protocols implemented in 3 classes
 
 Second_Phase - optimizing some of the protocols
 
-For more information about this project, see the this post and video
+For more information about this project, see the this [post]() and  [video](https://youtu.be/YYUqYm1DZ3s).
