@@ -16,4 +16,4 @@ First_Phase - Protocols implemented in 3 classes
 
 Second_Phase - optimizing some of the protocols
 
-For more information about this project, see the this [post](https://google.com) and  [video](https://youtu.be/YYUqYm1DZ3s).
+For more information about this project, see the this [post](https://medium.com/@nivbp/implementing-pop-in-an-ios-app-b75d79297048) and  [video](https://youtu.be/YYUqYm1DZ3s).
